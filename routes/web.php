@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home-page', function(){
-    return view('web.index');
-});
-
-Route::get('/layout', function(){
-    return view('admin/layout');
-});
+Route::resource('product', ProductController::class);
+Route::resource('category', CategoryController::class);
+Route::resource('role', RoleController::class);
+Route::resource('user', UserController::class);

@@ -1,0 +1,17 @@
+.form-switch .form-check-input:checked{
+    background-color: green;
+}
+.form-switch .form-check-input{
+    height: 24px;
+    width: 45px;
+    margin-left: -33px;
+}
+.form-switch .form-check-input:after{
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+}
+.form-check-input:focus{
+    box-shadow: 0 0 0 0.15rem rgb(13 110 253 / 25%);
+}

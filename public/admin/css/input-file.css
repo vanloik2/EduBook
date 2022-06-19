@@ -1,0 +1,33 @@
+.form-ip-file{
+  position: relative;
+  overflow: hidden;
+  width: 140px;
+  height: 38px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
+
+ input[type="file"].custom { 
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 0;
+} 
+
+.label-ip-file{
+  margin-top: 6px;
+  cursor: pointer;
+  max-width: 100%;
+  z-index: 1;
+}
+
+.preview-image img{
+  max-width: 25%;
+  margin-top: 10px;
+}
