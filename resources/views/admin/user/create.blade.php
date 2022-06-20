@@ -14,34 +14,35 @@
             <h6 class="m-0 font-weight-bold text-primary"></h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="name" class="label-control">Tên sản phẩm</label>
+                            <label for="name" class="label-control">Họ & Tên <span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="price" class="label-control">Giá sản phẩm</label>
-                            <input type="number" name="price" class="form-control">
+                            <label for="email" class="label-control">Email <span class="text-danger">*</span></label>
+                            <input type="text" name="email" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="quantity" class="label-control">Số lượng</label>
-                            <input type="number" name="quantity" class="form-control">
+                            <label for="password" class="label-control">Mật khẩu <span class="text-danger">*</span></label>
+                            <input type="password" name="password" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="">Danh mục sản phẩm</label>
-                            <select name="category_id" class="form-select form-control">
-                                <option value="">All danh mục</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <label for="c_password" class="label-control">Xác nhận mật khẩu <span
+                                    class="text-danger">*</span></label>
+                            <input type="password" name="password_confirmation" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Vai trò</label>
+                            <select name="role_id" class="form-select form-control">
+                                <option value="">All vai trò</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->role_name }}</option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="discount" class="label-control">Giảm giá</label>
-                            <input type="number" name="discount" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -56,16 +57,11 @@
                             <p class="preview-image"><img src="https://cdn-icons-png.flaticon.com/512/15/15287.png"
                                     id="previewImage" alt=""></p>
                         </div>
-                        <div class="form-check mb-3" style="padding-left: 1.5em">
-                            <input class="form-check-input" name="outstanding" type="checkbox" value="1">
-                            <label class="form-check-label" for="flexCheckDisabled">
-                                Nổi bật
-                            </label>
-                        </div>
                         <div class="mb-3">
-                            <label class="label-control">Mô tả sản phẩm</label>
-                            <textarea name="description" class="form-control" rows="3"></textarea>
+                            <label for="address" class="label-control">Địa chỉ</label>
+                            <input type="text" name="address" class="form-control">
                         </div>
+
                     </div>
                 </div>
                 <div class="text-center mt-3">

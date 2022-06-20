@@ -13,13 +13,13 @@
                 <div class="row row-cols-auto">
                     <div class="col">
                         <div class="input-group">
-                            <select name="category_id" class="form-select form-control col-md-3">
-                                <option value="">All Categories</option>
-                                @foreach ($categories as $category)
-                                @if($category->id == $category_id)
-                                    <option value="{{ $category->id }}" selected >{{ $category->name }}</option>
+                            <select name="role_id" class="form-select form-control col-md-3">
+                                <option value="">Vai trò</option>
+                                @foreach ($roles as $role)
+                                @if($role->id == $role_id)
+                                    <option value="{{ $role->id }}" selected >{{ $role->role_name }}</option>
                                     @else
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $role->id }}">{{ $role->role_name }}</option>
                                 @endif
                                 @endforeach
                             </select>
@@ -32,7 +32,7 @@
                         <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                     </div>
                     <div class="">
-                        <a href="{{ route('product.create') }}" class="btn btn-success">Thêm mới</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-success">Thêm mới</a>
                     </div>
                 </div>
             </form>
@@ -43,35 +43,25 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá sản phẩm</th>
-                            <th>Sô lượng</th>
-                            <th>Giảm giá</th>
-                            <th>Danh mục</th>
-                            <th>Nổi bật</th>
+                            <th>Họ & Tên</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Vai trò</th>
                             <th>Xử lý</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $index => $product)
+                        @foreach ($users as $index => $user)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ number_format($product->price) }} <sup class="text-decoration-underline">đ</sup>
-                                </td>
-                                <td>{{ $product->quantity }}</td>
-                                <td>{{ $product->discount }} <span>%</span></td>
-                                <td>{{ $product->category_name }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->address }}</td>
+                                <td>{{ $user->role_name }}</td>
                                 <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" @if ($product->outstanding == 1) checked @endif
-                                            type="checkbox" name="outstanding" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="{{ route('product.edit', $product->id) }}"
+                                    <a href="{{ route('user.edit', $user->id) }}"
                                         class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="{{ route('product.destroy', $product->id) }}" method="post" style="display: inline-block"
+                                    <form action="{{ route('user.destroy', $user->id) }}" method="post" style="display: inline-block"
                                         onsubmit=" return confirm('Xác nhận xóa !')">
                                         @csrf
                                         @method('DELETE')
@@ -83,7 +73,7 @@
                     </tbody>
                 </table>
                 <div>
-                    {{ $products->links() }}
+                    {{ $users->links() }}
                 </div>
             </div>
         </div>
