@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
@@ -18,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(AccountController::class)->group(function(){
+    Route::get('/register', 'register')->name('register');
+    Route::post('/register', 'registerAction')->name('register.action');
+    Route::get('/login', 'login')->name('login');
 });
 
 Route::resource('product', ProductController::class);
