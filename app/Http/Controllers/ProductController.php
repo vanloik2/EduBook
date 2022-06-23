@@ -77,7 +77,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/product')->with('success', 'Thêm sản phẩm thành công');
+        return redirect('/admin/product')->with('success', 'Thêm sản phẩm thành công');
     }
 
     /**
@@ -146,7 +146,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/product')->with('success', 'Cập nhật sản phẩm thành công');
+        return redirect('/admin/product')->with('success', 'Cập nhật sản phẩm thành công');
     }
 
     /**
@@ -160,6 +160,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
 
-        return redirect('/product')->with('success', 'Xóa sản phẩm thành công');
+        return redirect('/admin/product')->with('success', 'Xóa sản phẩm thành công');
     }
 }

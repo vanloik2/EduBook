@@ -49,7 +49,7 @@ class RoleController extends Controller
         $role = new Role($request->all());
         $role->save();
 
-        return redirect('/role')->with('success', 'Thêm mới quyền người dùng thành công !');
+        return redirect('/admin/role')->with('success', 'Thêm mới quyền người dùng thành công !');
     }
 
     /**
@@ -96,7 +96,7 @@ class RoleController extends Controller
         $role->role_name = $request->role_name;
         $role->save();
 
-        return redirect('/role')->with('succes', 'Sửa quyền người dùng thành công !');
+        return redirect('/admin/role')->with('success', 'Sửa quyền người dùng thành công !');
 
     }
 
@@ -111,6 +111,6 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->delete();
 
-        return redirect('/role')->with('success', 'Xóa quyền người dùng thành công !');
+        return redirect('/admin/role')->with('success', 'Xóa quyền người dùng thành công !');
     }
 }

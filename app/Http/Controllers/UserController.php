@@ -144,7 +144,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('user.index')->with('success', 'Sửa người dùng thành công');
+        return redirect('/admin/user')->with('success', 'Sửa người dùng thành công');
     }
 
     /**

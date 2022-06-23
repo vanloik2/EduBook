@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $category = new Category($request->all());
         $category->save();
 
-        return redirect('/category')->with('success', 'Thêm mới danh mục thành công');
+        return redirect('/admin/category')->with('success', 'Thêm mới danh mục thành công');
     }
 
     /**
@@ -95,7 +95,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('/category')->with('success', 'Sửa danh mục thành công');
+        return redirect('/admin/category')->with('success', 'Sửa danh mục thành công');
     }
 
     /**
@@ -109,6 +109,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        return redirect('/category')->with('success', 'Xóa danh mục thành công');
+        return redirect('/admin/category')->with('success', 'Xóa danh mục thành công');
     }
 }
